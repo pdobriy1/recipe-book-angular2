@@ -1,0 +1,33 @@
+<!-- <div class="row">
+	<div class="col-xs-10">
+		<rb-shopping-list-add></rb-shopping-list-add>
+		<ul class="list-group">
+			<a class="list-group-item" style="">
+				<div class="pull-left">
+				<h4 class="list-group-item-heading">{{shoppingList?.name}}</h4>
+				<p class="list-group-item-text">{{shoppingList?.description}}</p>
+			</div>
+			<span class="pull-right">
+				<img class="img-responsive"
+				 src="{{shoppingList?.imagepath}}"
+				 style="max-height: 150px">
+			</span>
+			</a>
+			
+			</ul>
+	</div>
+</div>
+ -->
+ 	 
+<div class="row">
+	<div class="col-xs-10">
+		<rb-shopping-list-add></rb-shopping-list-add>
+		<hr>
+		<ul class="list-group">
+			<a class="list-group-item" *ngFor="let item of ingredient;let i =index"
+				(click) = "onEditItem(i)">
+				{{item?.name}} ({{item?.amount}})</a>
+		</ul>
+	</div>
+
+</div>

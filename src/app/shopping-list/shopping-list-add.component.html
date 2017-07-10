@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form id="shopping-list-add" (ngSubmit) = "onAddItem(f)" #f = "ngForm">
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="item-name">Name</label>
+          <input
+            type="text"
+            id="name"
+            required
+            class="form-control"
+            name="name"
+            ngModel
+             
+            >
+        </div>
+
+        <div class="col-sm-2 form-group">
+          <label for="item-amount">Amount</label>
+          <input
+            type="text"
+            id="amount"
+            required
+            class="form-control"
+            name="amount"
+            ngModel 
+            pattern = "^[1-9]+[0-9]*$"
+            >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-success" type="submit" [disabled] = "!f.value">{{editMode ? 'Update' : 'Add'}}</button>
+          <button class="btn btn-danger" type="button" (click)="onDeleteItem()" *ngIf = "editMode">Delete Item</button>
+          <button class="btn btn-primary" type="button" (click)="onClearItem()">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
